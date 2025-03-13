@@ -27,6 +27,25 @@ def tittle_format(subtittle):
     print(format_subtittle.renderText(subtittle.upper()))
     print('-'*80)
 
+class Celular: 
+    def __init__(self, marca, modelo, camara):
+        self.marca = marca 
+        self.modelo = modelo
+        self.camara = camara
+    
+    # Un método es una función
+    # ¿para qué sirve?, para definir las acciones de nuestro objeto
+    def llamar(self):
+        print(f'Estas llamando desde un: {self.modelo}')
+    def colgar(self):
+         print(f'Estas colgando desde un: {self.modelo}')
+
 
 clase_hoy = 'metodos'
 tittle_format(clase_hoy)
+
+celu1 = Celular('Samsung', 'S23', '48MP') 
+celu2 = Celular('XIAOMI', 'Redmi', '32MP')
+
+celu1.llamar()
+celu2.colgar()
