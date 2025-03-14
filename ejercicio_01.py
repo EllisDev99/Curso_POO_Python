@@ -15,7 +15,9 @@ class Estudiante:
         self.edad = edad
         self.grado = grado
     
-    def estudiar(nombre):
-        print(f'El estudiante {self.nombre} de {self.edad} del grado {self.grado}')
+    def estudiar(self):
+        print(f'El estudiante {self.nombre} de {self.edad} años del grado {self.grado}')
 
 
+alumno = Estudiante(str(input().capitalize()), int(input()), str(input().upper()))
+Estudiante.estudiar(alumno)
