@@ -18,7 +18,7 @@ class Estudiante:
         self.semestre = semestre
     
     def estudiar():
-        print('Estudiando')
+        print('Estudiando\n:D')
         
 
 # Main
@@ -46,8 +46,27 @@ while True:
     except (ValueError, TypeError):
         print('Error por tipo de dato.\nDigite un número entero.')
 
-        
+    # validamos el semestre
+    rango = list(range(1,9+1))
+    try:
+        semestre = int(input('Indique su semestre.\nEjemplo: 5\n: '))
+        if semestre not in rango:
+            while True:
+                print('Semestre fuera de rango.')
+                semestre = int(input('Indique su semestre.\nEjemplo: 5\n: '))
+                if semestre in rango:
+                    break
+    except (ValueError, TypeError):
+        print('Error por tipo de dato.\nDigite un número entero.')
+
+    # Salimos del bucle
     break
-print('FIN')
+
+print(f'{" DATOS ":=^80}')
+alumno = Estudiante(name, edad, semestre)
+print(f'Alumno: {alumno.nombre}')
+print(f'Edad: {alumno.edad}')
+print(f'Semestre: {alumno.semestre}°')
+Estudiante.estudiar()
 
     
