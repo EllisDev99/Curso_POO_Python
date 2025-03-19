@@ -26,3 +26,24 @@ def tittle_format(subtittle):
     print(tittle.renderText('POO'))
     print(format_subtittle.renderText(subtittle.upper()))
     print('-'*80)
+
+class Persona:
+    def __init__(self, nombre, edad, nacionalidad):
+        self.nombre = nombre
+        self.edad = edad
+        self.nacionalidad = nacionalidad
+
+    def saludar(self):
+        print(f'Hola, soy {self.nombre}, mucho gusto.')
+
+class Empleado(Persona):
+    def __init__(self, nombre, edad, nacionalidad, trabajo, salario):
+        super().__init__(nombre, edad, nacionalidad)
+        self.trabajo = trabajo
+        self.salario = salario
+
+class Estudiante(Persona):
+    def __init__(self, nombre, edad, nacionalidad, universidad, carrera):
+        super().__init__(nombre, edad, nacionalidad)
+        self.universidad = universidad
+        self.carrera = carrera
