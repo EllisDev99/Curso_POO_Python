@@ -12,7 +12,7 @@ class Persona:
 class Empleado(Persona):#Indicamos que la clase Empleado heredara de la clase Persona
     def __init__(self, nombre, edad, nacionalidad, trabajo, salario):
         super().__init__(nombre, edad, nacionalidad) #Herencia de la clase padre 'Persona'
-        """ explicación de 'super()': básicamente llama al constructor de la calse 
+        """ explicación de 'super()': básicamente llama al constructor de la clase 
         Persona para incializar los atributos heredados"""
         self.trabajo = trabajo
         self.salario = salario
