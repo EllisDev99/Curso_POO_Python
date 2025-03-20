@@ -12,6 +12,7 @@ class Artista:
     
 class EmpleadoArtista(Persona, Artista):
     def __init__(self, nombre, edad, nacionalidad, habilidad, salario, empresa):
+        # Inicializa un objeto EmpleadoArtista, heredando de Persona y Artista.
         Persona.__init__(self, nombre, edad, nacionalidad)
         Artista.__init__(self, habilidad)
 
