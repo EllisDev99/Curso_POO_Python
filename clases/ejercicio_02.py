@@ -31,3 +31,27 @@ por lo tanto debe ser capaz de 'amamantar' y 'volar', además de 'comer'
 Finalmente, juega con el orden de herencia de la clase 'Murcielago' y observa cómo cambia el
 MRO y el comportamiento de los métodos al usar super().
 """
+from recursos import tittle_format as ft
+
+class People:
+    def __init__(self, nombre, edad):
+        self.nombre = nombre
+        self.edad = edad
+    
+    def datos(self):
+        print(f'Mi nombre es: {self.nombre} y tengo {self.edad} años.')
+
+class Estudent(People):
+    def __init__(self, nombre, edad, semestre):
+        super().__init__(nombre, edad)
+        self.semestre = semestre
+    
+    def semestre_actual(self):
+        print(f'Estoy cursando el {self.semestre}° de la carrera.')
+    
+
+ft('ejercicio II')
+
+estudiante = Estudent('Brayan', 25, 5)
+estudiante.datos()
+estudiante.semestre_actual()
