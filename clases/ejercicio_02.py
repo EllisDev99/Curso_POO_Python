@@ -55,3 +55,29 @@ ft('ejercicio II')
 estudiante = Estudent('Brayan', 25, 5)
 estudiante.datos()
 estudiante.semestre_actual()
+
+ft('ejercicio herencia mult y mro')
+
+class Animal:
+    def comer(self):
+        print('Comer')
+
+class Mamifero(Animal):
+    def amamantar(self):
+        print('Amamantar')
+
+class Ave(Animal):
+    def volar(self):
+        print('Volar')
+
+class Murcielago(Mamifero, Ave):
+    pass
+
+
+murcielago = Murcielago()
+print(Murcielago.mro())
+herencia = issubclass(Murcielago, Animal)
+print(herencia)
+murcielago.amamantar()
+murcielago.volar()
+murcielago.comer()
