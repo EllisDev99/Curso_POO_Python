@@ -18,3 +18,5 @@ repre = repr(persona)
 result = eval(repre)
 print(result)
 print(result.edad)
+
+# DILE A CHATGPT QUE TE AYUDE A DOCUMENTAR Y EXPLICAR ANTES DE AVANZAR
