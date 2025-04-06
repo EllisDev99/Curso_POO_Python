@@ -20,11 +20,30 @@ class Cazador:
     def __repr__(self):
         return f'Cazador(Latigo = {self.latigo}, Fuer = {self.fuerza}, Def = {self.defensa})'
 
-    def __add__(self, otro):
-        mas_fuerza = self.fuerza ** otro.fuerza
-        mas_defensa = self.defensa ** otro.defensa
-        return f'Cazador(Latigo = {self.latigo}-{otro.poder}, Fuer = {mas_fuerza}, Def = {mas_defensa})'
+    def __add__(self, otro_pj):
+        mas_fuerza = round(((self.fuerza + otro_pj.fuerza) / 2) ** 2)
+        mas_defensa = round(((self.defensa + otro_pj.defensa) / 2) ** 2)
+        nuevo_latigo = f'{self.latigo}-{otro_pj.poder}'
+        return Cazador(nuevo_latigo, mas_fuerza, mas_defensa)
+
+class Bruja:
+    def __init__(self, poder, fuerza, defensa):
+        self.poder = poder
+        self.fuerza = fuerza
+        self.defensa = defensa
+    
+    def __repr__(self):
+        return f'Bruja(Poder = {self.poder}, Fuer = {self.fuerza}, Def = {self.defensa})'
     
 
-belmont = Cazador('Latigo', 250, 250)
+
+tf('Ejercicio III')
+
+belmont = Cazador('Latigo', 10, 5)
 print(belmont) 
+
+belnades = Bruja('Fuego', 5, 2)
+print(belnades)
+
+julius_belmont = belmont + belnades
+print(julius_belmont)
