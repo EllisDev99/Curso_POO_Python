@@ -9,3 +9,10 @@ personajes se fusionen, salga un nuevo personaje con habilidades mejoradas.
 
 una posible formula es: el promedio de las habilidades de ambos, al cuadrado
 """
+from recursos import tittle_format as tf
+
+class Cazador:
+    def __init__(self, latigo, fuerza, defensa):
+        self.latigo = latigo
+        self.fuerza = fuerza
+        self.defensa = defensa
