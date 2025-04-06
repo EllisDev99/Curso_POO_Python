@@ -16,6 +16,12 @@ class Persona:
         # Esta forma debería poder ser usada con eval() para recrear el objeto
         return f'Persona("{self.nombre}",{self.edad})'
 
+    def __add__(self, otro):
+        # Le dice a Python cómo debe comportarse tu clase cuando sumás dos objetos con el operador +.
+        # Si no definís __add__, Python no va a saber cómo sumar tus objetos y te va a tirar un TypeError.
+        nuevo_valor = self.edad + otro.edad
+        return Persona(self.nombre + otro.nombre, nuevo_valor)
+
 
 # Se crea una instancia de Persona 
 persona = Persona('Brayan', 25)
@@ -33,6 +39,14 @@ print(result) # Salida: Persona(nombre=Brayan, edad=25)
 
 # Se accede directamente al atributo edad del nuevo objeto
 print(result.edad) # Salida: 25
+
+brayan = Persona('Brayan', 25)
+kevin = Persona('Kevin', 23)
+alicia = Persona('Alicia', 18)
+
+fucion = brayan + kevin + alicia
+print(fucion.nombre)
+print(fucion.edad)
 
 """
 Si __str__ no está definido, Python usa __repr__ como respaldo para mostrar algo.
