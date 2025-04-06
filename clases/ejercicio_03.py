@@ -16,3 +16,15 @@ class Cazador:
         self.latigo = latigo
         self.fuerza = fuerza
         self.defensa = defensa
+    
+    def __repr__(self):
+        return f'Cazador(Latigo = {self.latigo}, Fuer = {self.fuerza}, Def = {self.defensa})'
+
+    def __add__(self, otro):
+        mas_fuerza = self.fuerza ** otro.fuerza
+        mas_defensa = self.defensa ** otro.defensa
+        return f'Cazador(Latigo = {self.latigo}-{otro.poder}, Fuer = {mas_fuerza}, Def = {mas_defensa})'
+    
+
+belmont = Cazador('Latigo', 250, 250)
+print(belmont) 
