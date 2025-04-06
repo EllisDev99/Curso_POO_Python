@@ -37,12 +37,19 @@ class Cazador:
             Cazador: Una nueva instancia con los atributos fusionados.
 
         Nota:
-            Este método asume que `otro_pj` tiene los atributos `fuerza`, `defensa` y `poder`.
-            Si no los tiene, el método lanzará un error en tiempo de ejecución.
+            - hasattr(obj, attr) -> verifica si un objeto tiene un atrbuto con ese nombre.
+            - getattr(obj, attr, default) -> busca un atributo. Si no existe, devuelve un valor por defecto 
         """
+        if not hasattr(otro_pj, 'fuerza') or not hasattr(otro_pj, 'defensa'): 
+            # chequeamos que el otro_pj tenga los attr fuerza y defensa
+            raise TypeError("No se puede fusionar con un objeto sin fuerza ni defensa.")
+        
+        poder_extra = getattr(otro_pj, 'poder', '???')  # Usa '???' si no tiene poder
+        nuevo_latigo = f'{self.latigo}-{poder_extra}'
+
         mas_fuerza = round(((self.fuerza + otro_pj.fuerza) / 2) ** 2)
         mas_defensa = round(((self.defensa + otro_pj.defensa) / 2) ** 2)
-        nuevo_latigo = f'{self.latigo}-{otro_pj.poder}'
+        
         return Cazador(nuevo_latigo, mas_fuerza, mas_defensa)
 
 class Bruja:
@@ -65,7 +72,7 @@ print(belmont)  # Imprimimos llamando a __repre__
 belnades = Bruja('Fuego', 5, 2)
 print(belnades)
 
-julius_belmont = belmont + belnades 
+julius_belmont = belmont + belmont
 print(julius_belmont)
 
 # CREAR UN JUEGO INTERATUABLE CON EL USUARIO EN DONDE PUEAS CREAR ESPADAS
