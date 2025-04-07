@@ -45,6 +45,20 @@ Tu programa debe permitir al usuario:
 """
 from recursos import tittle_format as tf
 
+class EspadaBase():
+    def __init__(self, corte, dureza):
+        self.corte = corte
+        self.dureza = dureza
+
+class EspadaElemental(EspadaBase):
+    def __init__(self, corte, dureza, elemento):
+        super().__init__(corte, dureza)
+        self.elemento = elemento
+
+    def __repr__(self):
+        return f'Espada elemental stats: corte={self.corte}, dureza={self.dureza}, elemento={self.elemento}'
+
+
 def opciones():
     while True:
         try:
@@ -71,7 +85,7 @@ def opciones():
             print('Digite una opción valida.')
         except KeyboardInterrupt:
                 print('Programa interrumpido por el usuario.')
-                
+
     print('Gracias, ¡vuelva pronto!.')
 
 
