@@ -43,3 +43,29 @@ Tu programa debe permitir al usuario:
     - Eliminar las que ya no sirvan.
 
 """
+from recursos import tittle_format as tf
+
+def opciones():
+    try:
+        print('[1] - Crear espada\n[2] - Fusionar espadas\n[3] - Ver espadas creadas\n[4] - Eliminar espada\n[0] - Salir')
+        int(input('Elíga una opción: '))
+    except(ValueError, TypeError):
+        print('Error con el tipo de dato digitado.')
+        print('Digite una opción valida.')
+    except KeyboardInterrupt:
+            print('Programa interrumpido por el usuario.')
+
+
+
+
+
+
+
+
+
+
+
+
+
+tf('¡Forja tu Espada Definitiva!')
+opciones()
