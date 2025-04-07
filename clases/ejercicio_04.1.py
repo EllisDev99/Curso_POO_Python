@@ -46,27 +46,33 @@ Tu programa debe permitir al usuario:
 from recursos import tittle_format as tf
 
 def opciones():
-    try:
-        print('[1] - Crear espada\n[2] - Fusionar espadas\n[3] - Ver espadas creadas\n[4] - Eliminar espada\n[0] - Salir')
-        opcion = int(input('Elíga una opción: '))
-        if opcion == 0:
-            print('Saliendo del creador de espadas.')
-            break
-        elif opcion == 1:
-            pass
-        elif opcion == 2:
-            pass
-        elif opcion == 3:
-            pass
-        elif opcion == 4:
-            pass
+    while True:
+        try:
+            print('[1] - Crear espada\n[2] - Fusionar espadas\n[3] - Ver espadas creadas\n[4] - Eliminar espada\n[0] - Salir')
+            opcion = int(input('Elíga una opción: '))
+            if opcion == 0:
+                print('Saliendo del creador de espadas.')
+                break
+            elif opcion == 1:
+                pass
+            elif opcion == 2:
+                pass
+            elif opcion == 3:
+                pass
+            elif opcion == 4:
+                pass
+            else:
+                print('='*100)
+                print('Valor fuera de rango.\nDigite una opción valida.')
+                print('='*100)
+                    
+        except(ValueError):
+            print('Error con el tipo de dato digitado.')
+            print('Digite una opción valida.')
+        except KeyboardInterrupt:
+                print('Programa interrumpido por el usuario.')
                 
-    except(ValueError):
-        print('Error con el tipo de dato digitado.')
-        print('Digite una opción valida.')
-    except KeyboardInterrupt:
-            print('Programa interrumpido por el usuario.')
-
+    print('Gracias, ¡vuelva pronto!.')
 
 
 
