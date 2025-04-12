@@ -14,7 +14,7 @@ Vas a crear un programa interactivo en consola donde el usuario pueda gestionar 
 1. Clase base EspadaBase
 Crea una clase llamada EspadaBase con estos dos atributos:
     - corte (int): nivel de filo de la espada
-    - dureza (float): resistencia del material
+    - dureza (int 0-3): resistencia del material
 
 2. Clases hijas: EspadaElemental
 Crea una clase hija que herede de EspadaBase. Esta clase debe tener un atributo adicional:
@@ -46,20 +46,74 @@ Tu programa debe permitir al usuario:
 from recursos import tittle_format as tf
 
 class EspadaBase():
+    """
+    Representa una espada con atributos básicos.
+
+    Attributes:
+        corte (int): Nivel de corte de la espada.
+        dureza (int): Dureza del material (0 a 3).
+    """
     def __init__(self, corte, dureza):
+        """
+        Inicializa una instancia de EspadaBase
+
+        Args:
+            corte (int): Nivel de corte.
+            dureza (int): Dureza del material (0 a 3).
+        """
         self.corte = corte
         self.dureza = dureza
 
 class EspadaElemental(EspadaBase):
+    """
+    Representa una espada con un poder elemental.
+
+    Attributes:
+        corte (int): Nivel de corte heredado de EspadaBase.
+        dureza (int): Dureza heredada de EspadaBase.
+        elemento (str): Tipo de elemento (fuego, agua, tierra o aire).
+    """
     def __init__(self, corte, dureza, elemento):
+        """
+        Inicializa una instancia de EspadaElemental.
+
+        Args:
+            corte (int): Nivel de corte.
+            dureza (int): Dureza del material (0 a 3).
+            elemento (str): Tipo de elemento (fuego, hielo, etc.).
+        """
         super().__init__(corte, dureza)
         self.elemento = elemento
 
     def __repr__(self):
+        """
+        Representación en texto de la espada elemental.
+
+        Returns:
+            str: Descripción con los stats de la espada.
+        """
         return f'Espada elemental stats: corte={self.corte}, dureza={self.dureza}, elemento={self.elemento}'
 
 
-def opciones():
+def opciones_menu():
+    """
+    Muestra un menú interactivo para gestionar espadas.
+
+    Permite al usuario:
+        - Crear una nueva espada.
+        - Fusionar espadas existentes.
+        - Ver la lista de espadas creadas.
+        - Eliminar una espada.
+        - Salir del programa.
+
+    El menú se repite hasta que el usuario elige salir (opción 0).
+    
+    Maneja errores como:
+        - Entrada no numérica (ValueError).
+        - Interrupción del teclado (KeyboardInterrupt).
+    
+    No recibe parámetros ni devuelve valores.
+    """
     while True:
         try:
             print('[1] - Crear espada\n[2] - Fusionar espadas\n[3] - Ver espadas creadas\n[4] - Eliminar espada\n[0] - Salir')
@@ -100,4 +154,4 @@ def opciones():
 
 
 tf('¡Forja tu Espada Definitiva!')
-opciones()
+opciones_menu()
