@@ -26,3 +26,20 @@ Las clases no deberían depender de clases concretas, sino de interfaces o abstr
 
 DEFINICIÖN DADA POR MI AMIGA CHATGPT
 """
+class Notificador:
+    def __init__(self, usuario, mensaje):
+        self.usuario = usuario
+        self.mensaje = mensaje
+    
+    def notificador(self):
+        raise NotImplementedError
+
+class NotificadorEmail(Notificador):
+    def notificar(self):
+        print(f'Enviando mensaje a {self.usuario.email}')
+
+class NotificadorSMS(Notificador):
+    def notificar(self):
+        print(f'Enviando mensaje a {self.usuario.sms}')
+
+# Extendemos la funcionalidad de la clase Notificador creando una subclase de esta
